@@ -42,3 +42,5 @@ Usage:  prodigal [-a trans_file] [-c] [-d nuc_file] [-f output_type]
 ## Links
 
  * [Prodigal homepage](https://github.com/hyattpd/Prodigal)
+ * [Viral genome](https://www.ncbi.nlm.nih.gov/search/all/?term=MN908947)
+
