@@ -2,10 +2,12 @@ test_that("use", {
   skip("WIP")
   if (!is_prodigal_installed()) return()
 
-  fasta_filename <- system.file(
-    "extdata", "prodigal.fasta", package = "prodigal"
+  prodigal_options <- create_prodigal_options(
+    fasta_filename = system.file(
+      "extdata", "covid19.fasta", package = "prodigalr"
+    )
   )
-  readLines(fasta_filename)
-  text <- run_prodigal(fasta_filename)
-  expect_equal(2, length(text))
+  expect_true(are_prodigal_options(prodigal_options))
+  prodigal_results <- run_prodigal(prodigal_options)
+  expect_silent(check_prodigal_results(prodigal_results))
 })
