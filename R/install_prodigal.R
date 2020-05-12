@@ -35,8 +35,6 @@ install_prodigal <- function(
   # Does the binary exist?
   bin_filename <- file.path(prodigal_folder, "prodigal")
   if (!file.exists(bin_filename)) {
-    #make_filename <- file.path(prodigal_folder, "Makefile")
-    #testthat::expect_true(file.exists(make_filename))
     cmd <- paste0("cd ", prodigal_folder, " && make")
     system(cmd)
   }

@@ -27,17 +27,11 @@ run_prodigal <- function(
     folder_name = folder_name,
     temp_folder_name = temp_folder_name
   )
-  # [1] "/tmp/RtmpsfA4tg/pureseqt_838661d1571/prodigal.fasta"
-  # [2] "/tmp/RtmpsfA4tg/pureseqt_838661d1571/prodigal.fasta_raw"
-  # [3] "/tmp/RtmpsfA4tg/pureseqt_838661d1571/prodigal.pred_mode"
-  # [4] "/tmp/RtmpsfA4tg/pureseqt_838661d1571/prodigal.prob"
-  # [5] "/tmp/RtmpsfA4tg/pureseqt_838661d1571/prodigal.top"
-  #readLines(fasta_filename)
-  text_1 <- readLines(filenames[1])
-  text_2 <- readLines(filenames[2])
-  text_3 <- readLines(filenames[3])
-  text_4 <- readLines(filenames[4])
-  text_5 <- readLines(filenames[5])
-  locatome <- readLines(filenames[5])
-  readLines(filenames[5])
+  out <- list()
+  out[[1]] <- readLines(filenames[1])
+  out[[2]]  <- readLines(filenames[2])
+  out[[3]]  <- readLines(filenames[3])
+  out[[4]]  <- readLines(filenames[4])
+  out[[5]]  <- readLines(filenames[5])
+  out
 }

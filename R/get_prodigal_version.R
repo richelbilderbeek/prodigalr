@@ -26,5 +26,5 @@ get_prodigal_version <- function(
   )
   line <- text[text != ""]
   # Example line: Prodigal V2.6.3: February, 2016
-  stringr::str_match(string = line, pattern = " V(.....):")[1,2]
+  stringr::str_match(string = line, pattern = " V(.....):")[1, 2]
 }

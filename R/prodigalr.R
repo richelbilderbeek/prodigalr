@@ -7,7 +7,9 @@
 #' library(testthat)
 #'
 #' if (1 == 2 && is_prodigal_installed()) {
-#'   fasta_filename <- system.file("extdata", "prodigal.fasta", package = "prodigal")
+#'   fasta_filename <- system.file(
+#'     "extdata", "prodigal.fasta", package = "prodigal"
+#'   )
 #'   locatome <- run_prodigal(fasta_filename)
 #'
 #'   # Show as text
