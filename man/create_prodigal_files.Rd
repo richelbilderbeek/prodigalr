@@ -7,7 +7,10 @@
 create_prodigal_files(
   fasta_filename,
   folder_name = get_default_prodigal_folder(),
-  temp_folder_name = tempfile(pattern = "prodigal_")
+  output_filename = tempfile("output_"),
+  trans_filename = tempfile("trans_"),
+  nuc_filename = tempfile("nuc_"),
+  start_filename = tempfile("start_")
 )
 }
 \arguments{
@@ -18,15 +21,16 @@ The superfolder's name is \code{/home/[user_name]/.local/share}
 by default, as can be obtained by
 \link{get_default_prodigal_folder}}
 
-\item{temp_folder_name}{path of a temporary folder.
-The folder does not need to exist.
-Files that are out in this folder are not automatically
-deleted, which is not a problem, as the default
-path given by \link{tempdir} is automatically cleaned
-by the operating system}
+\item{output_filename}{name of the file to write the output to}
+
+\item{trans_filename}{name of the file to write the protein translations to}
+
+\item{nuc_filename}{name of the file to write the nucleotide sequences of genes to}
+
+\item{start_filename}{name of the file to write all potential genes (with scores) to}
 }
 \value{
-full path to the files created
+full paths to the files created
 }
 \description{
 Create the Prodigal output files, by running Prodigal
@@ -34,12 +38,13 @@ Create the Prodigal output files, by running Prodigal
 \examples{
 library(testthat)
 
-if (1 == 2 && is_prodigal_installed()) {
+if (is_prodigal_installed()) {
   fasta_filename <- system.file(
-    "extdata", "prodigal.fasta", package = "prodigalr"
+    "extdata", "covid19.fasta", package = "prodigalr"
   )
   filenames <- create_prodigal_files(fasta_filename)
-  expect_equal(5, length(filenames))
+  expect_equal(4, length(filenames))
+  expect_true(all(file.exists((filenames))))
 }
 }
 \seealso{

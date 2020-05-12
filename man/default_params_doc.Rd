@@ -9,12 +9,15 @@ default_params_doc(
   download_url,
   fasta_filename,
   folder_name,
-  locatome,
+  nuc_filename,
+  output_filename,
   protein_sequence,
   protein_sequences,
   prodigal_filename,
   prodigal_result,
+  start_filename,
   temp_folder_name,
+  trans_filename,
   verbose
 )
 }
@@ -28,8 +31,9 @@ The superfolder's name is \code{/home/[user_name]/.local/share}
 by default, as can be obtained by
 \link{get_default_prodigal_folder}}
 
-\item{locatome}{text similar to a FASTA file, with protein names
-and the locations of its amino acids}
+\item{nuc_filename}{name of the file to write the nucleotide sequences of genes to}
+
+\item{output_filename}{name of the file to write the output to}
 
 \item{protein_sequence}{a protein sequence}
 
@@ -39,12 +43,16 @@ and the locations of its amino acids}
 
 \item{prodigal_result}{the result of a Prodigal run}
 
+\item{start_filename}{name of the file to write all potential genes (with scores) to}
+
 \item{temp_folder_name}{path of a temporary folder.
 The folder does not need to exist.
 Files that are out in this folder are not automatically
 deleted, which is not a problem, as the default
 path given by \link{tempdir} is automatically cleaned
 by the operating system}
+
+\item{trans_filename}{name of the file to write the protein translations to}
 
 \item{verbose}{set to TRUE for more output}
 }
