@@ -39,10 +39,22 @@ create_prodigal_files <- function(
   bin_filename <- file.path(prodigal_folder, "prodigal")
   testthat::expect_true(file.exists(bin_filename))
 
-  dir.create(dirname(prodigal_options$output_filename), showWarnings = FALSE, recursive = TRUE)
-  dir.create(dirname(prodigal_options$trans_filename), showWarnings = FALSE, recursive = TRUE)
-  dir.create(dirname(prodigal_options$start_filename), showWarnings = FALSE, recursive = TRUE)
-  dir.create(dirname(prodigal_options$nuc_filename), showWarnings = FALSE, recursive = TRUE)
+  dir.create(
+    dirname(prodigal_options$output_filename),
+    showWarnings = FALSE, recursive = TRUE
+  )
+  dir.create(
+    dirname(prodigal_options$trans_filename),
+    showWarnings = FALSE, recursive = TRUE
+  )
+  dir.create(
+    dirname(prodigal_options$start_filename),
+    showWarnings = FALSE, recursive = TRUE
+  )
+  dir.create(
+    dirname(prodigal_options$nuc_filename),
+    showWarnings = FALSE, recursive = TRUE
+  )
 
   error_code <- system2(
     command = bin_filename,
