@@ -13,7 +13,7 @@ default_params_doc(
   output_filename,
   protein_sequence,
   protein_sequences,
-  prodigal_filename,
+  prodigal_options,
   prodigal_result,
   start_filename,
   temp_folder_name,
@@ -31,7 +31,8 @@ The superfolder's name is \code{/home/[user_name]/.local/share}
 by default, as can be obtained by
 \link{get_default_prodigal_folder}}
 
-\item{nuc_filename}{name of the file to write the nucleotide sequences of genes to}
+\item{nuc_filename}{name of the file to write
+the nucleotide sequences of genes to}
 
 \item{output_filename}{name of the file to write the output to}
 
@@ -39,11 +40,13 @@ by default, as can be obtained by
 
 \item{protein_sequences}{one or more protein sequences}
 
-\item{prodigal_filename}{filename to write the Prodigal results to}
+\item{prodigal_options}{options to run Prodigal,
+as created by \link{create_prodigal_options}}
 
 \item{prodigal_result}{the result of a Prodigal run}
 
-\item{start_filename}{name of the file to write all potential genes (with scores) to}
+\item{start_filename}{name of the file to write
+all potential genes (with scores) to}
 
 \item{temp_folder_name}{path of a temporary folder.
 The folder does not need to exist.

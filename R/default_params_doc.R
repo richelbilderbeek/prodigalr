@@ -11,7 +11,8 @@
 #' @param output_filename name of the file to write the output to
 #' @param protein_sequence a protein sequence
 #' @param protein_sequences one or more protein sequences
-#' @param prodigal_filename filename to write the Prodigal results to
+#' @param prodigal_options options to run Prodigal,
+#'   as created by \link{create_prodigal_options}
 #' @param prodigal_result the result of a Prodigal run
 #' @param start_filename name of the file to write
 #'   all potential genes (with scores) to
@@ -35,7 +36,7 @@ default_params_doc <- function(
   output_filename,
   protein_sequence,
   protein_sequences,
-  prodigal_filename,
+  prodigal_options,
   prodigal_result,
   start_filename,
   temp_folder_name,

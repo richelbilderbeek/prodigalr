@@ -4,33 +4,15 @@
 \alias{create_prodigal_files}
 \title{Create the Prodigal output files, by running Prodigal}
 \usage{
-create_prodigal_files(
-  fasta_filename,
-  folder_name = get_default_prodigal_folder(),
-  output_filename = tempfile("output_"),
-  trans_filename = tempfile("trans_"),
-  nuc_filename = tempfile("nuc_"),
-  start_filename = tempfile("start_")
-)
+create_prodigal_files(prodigal_options)
 }
 \arguments{
-\item{fasta_filename}{path to a FASTA file}
-
-\item{folder_name}{superfolder of Prodigal.
-The superfolder's name is \code{/home/[user_name]/.local/share}
-by default, as can be obtained by
-\link{get_default_prodigal_folder}}
-
-\item{output_filename}{name of the file to write the output to}
-
-\item{trans_filename}{name of the file to write the protein translations to}
-
-\item{nuc_filename}{name of the file to write the nucleotide sequences of genes to}
-
-\item{start_filename}{name of the file to write all potential genes (with scores) to}
+\item{prodigal_options}{options to run Prodigal,
+as created by \link{create_prodigal_options}}
 }
 \value{
-full paths to the files created
+nothing, will create the files as specified in
+the \code{prodigal_options}
 }
 \description{
 Create the Prodigal output files, by running Prodigal
@@ -39,12 +21,17 @@ Create the Prodigal output files, by running Prodigal
 library(testthat)
 
 if (is_prodigal_installed()) {
-  fasta_filename <- system.file(
-    "extdata", "covid19.fasta", package = "prodigalr"
+  prodigal_options <- create_prodigal_options(
+    fasta_filename = system.file(
+      "extdata", "covid19.fasta", package = "prodigalr"
+    )
   )
-  filenames <- create_prodigal_files(fasta_filename)
-  expect_equal(4, length(filenames))
-  expect_true(all(file.exists((filenames))))
+  expect_true(are_prodigal_options(prodigal_options))
+  expect_silent(create_prodigal_files(prodigal_options))
+  expect_true(file.exists(prodigal_options$output_filename))
+  expect_true(file.exists(prodigal_options$trans_filename))
+  expect_true(file.exists(prodigal_options$nuc_filename))
+  expect_true(file.exists(prodigal_options$start_filename))
 }
 }
 \seealso{

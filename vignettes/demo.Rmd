@@ -28,10 +28,14 @@ fasta_filename <- system.file(
 ```
 
 ```{r}
+prodigal_options <- create_prodigal_options(
+  fasta_filename = fasta_filename
+)
+```
+
+```{r}
 if (is_prodigal_installed()) {
-  filenames <- create_prodigal_files(fasta_filename)
-  expect_equal(4, length(filenames))
-  expect_true(all(file.exists((filenames))))
+  create_prodigal_files(prodigal_options)
 }
 ```
 
@@ -39,8 +43,8 @@ if (is_prodigal_installed()) {
 
 ```{r}
 if (is_prodigal_installed()) {
-  cat(filenames[1])
-  readLines(filenames[1])
+  cat(prodigal_options$output_filename)
+  readLines(prodigal_options$output_filename)
 }
 ```
 
@@ -48,8 +52,8 @@ if (is_prodigal_installed()) {
 
 ```{r}
 if (is_prodigal_installed()) {
-  cat(filenames[2])
-  readLines(filenames[2])
+  cat(prodigal_options$trans_filename)
+  readLines(prodigal_options$trans_filename)
 }
 ```
 
@@ -57,8 +61,8 @@ if (is_prodigal_installed()) {
 
 ```{r}
 if (is_prodigal_installed()) {
-  cat(filenames[3])
-  readLines(filenames[3])
+  cat(prodigal_options$nuc_filename)
+  readLines(prodigal_options$nuc_filename)
 }
 ```
 
@@ -66,7 +70,7 @@ if (is_prodigal_installed()) {
 
 ```{r}
 if (is_prodigal_installed()) {
-  cat(filenames[4])
-  readLines(filenames[4])
+  cat(prodigal_options$start_filename)
+  readLines(prodigal_options$start_filename)
 }
 ```
