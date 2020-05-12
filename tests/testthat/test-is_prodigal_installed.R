@@ -21,6 +21,6 @@ test_that("re-install must fails", {
 
   expect_error(
     install_prodigal(),
-    "Prodigalis already installed"
+    "Prodigal is already installed"
   )
 })

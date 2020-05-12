@@ -1,2 +1,4 @@
 ^prodigalr\.Rproj$
 ^\.Rproj\.user$
+^LICENSE$
+^\.travis\.yml$

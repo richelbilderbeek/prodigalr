@@ -1,4 +1,8 @@
 #' prodigalr: call Prodigal from R
+#'
+#' It is tricky to predict a proteome from a genome.
+#' 'Prodigal' is a tool that allows one to do so.
+#' This package allows one to call 'Prodigal' from R.
 #' @examples
 #' library(testthat)
 #'

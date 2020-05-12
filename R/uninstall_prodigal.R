@@ -2,13 +2,13 @@
 #' @param folder_name name of the folder
 #'   where the Prodigal files are installed.
 #'   The name of the Prodigal binary file will be at
-#'   \code{[folder_name]/Prodigal_Package}
+#'   \code{[folder_name]/Prodigal}
 #' @author Richèl J.C. Bilderbeek
 #' @export
 uninstall_prodigal <- function(
   folder_name = get_default_prodigal_folder()
 ) {
-  if (!is_prodigal_installed(folder_name = folder_name)
+  if (!prodigalr::is_prodigal_installed(folder_name = folder_name)
   ) {
     stop("Cannot uninstall absent Prodigal at folder '", folder_name, "'")
   }

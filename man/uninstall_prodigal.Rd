@@ -10,7 +10,7 @@ uninstall_prodigal(folder_name = get_default_prodigal_folder())
 \item{folder_name}{name of the folder
 where the Prodigal files are installed.
 The name of the Prodigal binary file will be at
-\code{[folder_name]/Prodigal_Package}}
+\code{[folder_name]/Prodigal}}
 }
 \description{
 Uninstall Prodigal

@@ -13,7 +13,7 @@ install_prodigal <- function(
   folder_name = get_default_prodigal_folder()
 ) {
   if (is_prodigal_installed()) {
-    stop("Prodigalis already installed")
+    stop("Prodigal is already installed")
   }
 
   # Extract zip if needed

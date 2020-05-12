@@ -20,9 +20,9 @@ run_prodigal <- function(
   folder_name = get_default_prodigal_folder(),
   temp_folder_name = tempfile(pattern = "pureseqt_")
 ) {
-  prodigal::check_prodigal_installation(folder_name = folder_name)
+  prodigalr::check_prodigal_installation(folder_name = folder_name)
 
-  filenames <- prodigal::create_prodigal_files(
+  filenames <- prodigalr::create_prodigal_files(
     fasta_filename = fasta_filename,
     folder_name = folder_name,
     temp_folder_name = temp_folder_name

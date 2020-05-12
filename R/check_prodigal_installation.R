@@ -14,36 +14,24 @@
 check_prodigal_installation <- function(
   folder_name = get_default_prodigal_folder()
 ) {
-  if (1 == 2) {
-    # Download zip if needed
-    zip_filename_path <- file.path(folder_name, "Prodigal_Package.zip")
-    if (!file.exists(zip_filename_path)) {
-      stop(
-        "Cannot find Prodigal zip file at '", zip_filename_path, "'\n",
-        "\n",
-        "Tip: from R, run 'prodigal::install_prodigal()'\n"
-      )
-    }
-    testthat::expect_true(file.exists(zip_filename_path))
-  }
-  # Extract zip if needed
-  prodigal_folder <- file.path(folder_name, "Prodigal_Package")
+  # Folder
+  prodigal_folder <- file.path(folder_name, "Prodigal")
   if (!dir.exists(prodigal_folder)) {
     stop(
       "Cannot find the Prodigal folder '", prodigal_folder, "'\n",
       "\n",
-      "Tip: from R, run 'prodigal::install_prodigal()'\n"
+      "Tip: from R, run 'prodigalr::install_prodigal()'\n"
     )
   }
   testthat::expect_true(dir.exists(prodigal_folder))
 
   # Does the binary exist?
-  bin_filename <- file.path(prodigal_folder, "Prodigal.sh")
+  bin_filename <- file.path(prodigal_folder, "prodigal")
   if (!file.exists(bin_filename)) {
     stop(
       "Cannot find the Prodigal binary at '", bin_filename, "'\n",
       "\n",
-      "Tip: from R, run 'prodigal::install_prodigal()'\n"
+      "Tip: from R, run 'prodigalr::install_prodigal()'\n"
     )
   }
   testthat::expect_true(file.exists(bin_filename))
