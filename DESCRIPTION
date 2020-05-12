@@ -16,4 +16,7 @@ Imports:
     stringr
 Suggests:
     lintr,
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

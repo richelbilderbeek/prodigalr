@@ -1,0 +1,72 @@
+---
+title: "demo"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(testthat)
+library(prodigalr)
+```
+
+Input genome filename:
+
+```{r}
+fasta_filename <- system.file(
+  "extdata", "covid19.fasta", package = "prodigalr"
+)
+```
+
+```{r}
+if (is_prodigal_installed()) {
+  filenames <- create_prodigal_files(fasta_filename)
+  expect_equal(4, length(filenames))
+  expect_true(all(file.exists((filenames))))
+}
+```
+
+1:
+
+```{r}
+if (is_prodigal_installed()) {
+  cat(filenames[1])
+  readLines(filenames[1])
+}
+```
+
+2:
+
+```{r}
+if (is_prodigal_installed()) {
+  cat(filenames[2])
+  readLines(filenames[2])
+}
+```
+
+3:
+
+```{r}
+if (is_prodigal_installed()) {
+  cat(filenames[3])
+  readLines(filenames[3])
+}
+```
+
+4:
+
+```{r}
+if (is_prodigal_installed()) {
+  cat(filenames[4])
+  readLines(filenames[4])
+}
+```
