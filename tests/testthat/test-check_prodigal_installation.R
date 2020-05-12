@@ -11,7 +11,10 @@ test_that("use", {
 
   # Only bin
   folder_name <- tempdir()
-  dir.create(file.path(folder_name, "Prodigal"), showWarnings =  FALSE, recursive = TRUE)
+  dir.create(
+    file.path(folder_name, "Prodigal"),
+    showWarnings =  FALSE, recursive = TRUE
+  )
   expect_error(
     check_prodigal_installation(folder_name = folder_name),
     "Cannot find the Prodigal binary"
