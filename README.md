@@ -1,0 +1,2 @@
+# prodigalr
+Prodigal for R
